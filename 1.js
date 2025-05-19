@@ -35,6 +35,17 @@
         </label>
       </div>
 
+      <div class="question>
+        <label>3. 你最常使用手機在什麼方面？<br>
+          <select name="q2.1" required>
+            <option value="遊戲">遊戲</option>
+            <option value="社群軟體">社群軟體</option>
+            <option value="追劇/看影片">追劇/看影片</option>
+            <option value="通訊">通訊</option>
+          </select>
+        </label>
+      </div>
+    
       <div class="question">
         <label>3. 手機不在身邊時會感到焦慮嗎？<br>
           <select name="q3" required>
@@ -95,6 +106,15 @@
         </label>
       </div>
 
+      <div class="question">
+        <label>9. 你是否認為你的手機使用時間過長？<br>
+          <select name="q9" required>
+            <option value="是">是</option>
+            <option value="否">否</option>
+          </select>
+        </label>
+      </div>
+    
       <button type="submit">送出</button>
     </form>
   </div>
@@ -123,6 +143,7 @@
       const data = new FormData(e.target);
 
       const usageTime = parseFloat(data.get("q1"));
+      const usagePoint = data.get("q2.1");
       const anxiety = data.get("q3");
       const schoolImpact = data.get("q4");
       const triedReduce = data.get("q5_1");
@@ -130,11 +151,20 @@
       const openSocial = parseInt(data.get("q7"));
       const missInteraction = data.get("q8");
 
+      const change = None;
+
       let score = 0;
 
-      if (usageTime >= 6) score += 2;
-      else if (usageTime >= 4) score += 1;
+      if (usageTime >= 10) score += 3;
+      else if (usageTime >= 8) score += 2;
+      else if (usageTime >= 5) score += 1;
+      else if (usageTime >= 3) score += 0;
 
+      if (usagePoint ==="遊戲") change = "遊戲";
+      else if (usagePoint ==="社群軟體") change = "社群軟體";
+      else if (usagePoint ==="追劇/看影片"）change = "追劇/看影片";
+      else if (usagePoint ==="通訊"）change = "通訊";
+        
       if (anxiety === "非常同意") score += 2;
       else if (anxiety === "同意") score += 1;
 
