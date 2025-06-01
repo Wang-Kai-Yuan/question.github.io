@@ -196,14 +196,18 @@
       const wastefulFunctions = [function1, function2].filter(isWasteful);
 
       // 分類使用者型態
-      let type = "正常使用者（低使用且無負面影響）";
-      if (usage >= 5 && !motivation) {
-        type = "重度使用者（上癮且無調整動機）";
-      } else if (usage >= 5 && motivation) {
-        type = "高使用但有改變動機者";
-      } else if ((anxiety === "非常同意" || impact === "經常") && usage >= 3) {
-        type = "中度依賴者（特定功能或情境才用手機）";
-      }
+          if (usage > 6 && (motivation === false || triedReduce === false)) {
+      type = "重度使用者（上癮且無調整動機）";
+    } else if (usage > 5 && (motivation === true || triedReduce === true)) {
+      type = "高使用但有改變動機者";
+    } else if (
+      (anxiety === "非常同意" || anxiety === "同意" || impact === "經常" || impact === "偶爾") 
+      && usage > 3
+    ) {
+      type = "中度依賴者（特定功能或情境才用手機）";
+    } else {
+      type = "正常使用者（低使用且無負面影響）";
+    }
 
       // 建立減少計畫（18 週），拋物線型減少
       const target = 21; // 每週21小時
