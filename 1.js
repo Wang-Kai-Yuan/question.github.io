@@ -196,7 +196,7 @@
       const wastefulFunctions = [function1, function2].filter(isWasteful);
 
       // 分類使用者型態
-          if (usage > 6 && (motivation === false || triedReduce === false)) {
+          if (usage > 7 && (motivation === false || triedReduce === false)) {
       type = "重度使用者（上癮且無調整動機）";
     } else if (usage > 5 && (motivation === true || triedReduce === true)) {
       type = "高使用但有改變動機者";
@@ -234,6 +234,7 @@
         ${motivation ? `<p>您有改變的動機，建議參考 <a href='https://www.youtube.com/watch?v=mCEjEkgU1AA' target='_blank'>這部影片</a> 作為行動參考。</p>` : ""}
       `;
 
+      goToPage(3);
       goToPage(3);
     });
   </script>
