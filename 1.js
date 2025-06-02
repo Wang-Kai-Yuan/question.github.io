@@ -155,7 +155,7 @@
           <label for="q9_2">9-2. 您最常使用手機的第二個功能？</label>
           <input type="text" name="q9_2" required placeholder="例如：社群媒體、遊戲、影音等">
         </div>
-        <button onclick=gotopage(3)>送出</button>
+        <button type="submit">送出</button>
       </form>
     </div>
 
